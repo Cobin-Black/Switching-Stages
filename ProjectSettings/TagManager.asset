@@ -9,6 +9,7 @@ TagManager:
   - Enemy Weak Point
   - Pitfall
   - Spike
+  - Finish Line
   layers:
   - Default
   - TransparentFX

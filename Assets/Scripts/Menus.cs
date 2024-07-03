@@ -15,6 +15,16 @@ public class Menus : MonoBehaviour
         SceneManager.LoadScene("Main Menu");
     }
 
+    public void GoToNextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     #region Level Select Menu
     public void GoToLevelSelectMenu()
     {

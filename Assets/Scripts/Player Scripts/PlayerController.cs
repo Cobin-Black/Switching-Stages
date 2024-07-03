@@ -51,6 +51,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask wallLayer;
     #endregion
 
+    #region Menus
+    [Space(10)]
+    [Header("Game Menus")]
+    //[SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject winMenu;
+    [SerializeField] private GameObject deathMenu;
+    #endregion
 
     private void Awake()
     {
@@ -447,7 +454,17 @@ public class PlayerController : MonoBehaviour
         if (playerCollision.gameObject.tag == "Grounded Enemy" || playerCollision.gameObject.tag == "Air Enemy" 
             || playerCollision.gameObject.tag == "Spike" || playerCollision.gameObject.tag == "Pitfall")
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            deathMenu.SetActive(true);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D playerCollision)
+    {
+        if (playerCollision.gameObject.tag == "Finish Line")
+        {
+            gameObject.SetActive(false);
+            winMenu.SetActive(true);
         }
     }
 }

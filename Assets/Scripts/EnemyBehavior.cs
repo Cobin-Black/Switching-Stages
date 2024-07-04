@@ -12,7 +12,7 @@ public class EnemyBehavior : MonoBehaviour
     private Transform currentPosition;
 
     [SerializeField] private float enemySpeed;
-    // Start is called before the first frame update
+
     void Start()
     {
         enemyRigidBody = GetComponent<Rigidbody2D>();
@@ -20,7 +20,6 @@ public class EnemyBehavior : MonoBehaviour
         currentPosition = pointB.transform;
     }
 
-    // Update is called once per frame
     void Update()
     {
         GroundedEnemyMovement();

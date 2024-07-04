@@ -26,6 +26,7 @@ public class Menus : MonoBehaviour
     }
 
     #region Level Select Menu
+    //Where the scene manager loads every level
     public void GoToLevelSelectMenu()
     {
         SceneManager.LoadScene("LevelSelect");

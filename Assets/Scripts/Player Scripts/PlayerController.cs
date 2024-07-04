@@ -59,19 +59,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject deathMenu;
     #endregion
 
+    Timer timer;
+
     private void Awake()
     {
         playerRigidBody = GetComponent<Rigidbody2D>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         SetGravityScale(Data.gravityScale);
         isFacingRight = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
         #region Timers
@@ -451,6 +451,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D playerCollision)
     {
+        //For when the player dies
         if (playerCollision.gameObject.tag == "Grounded Enemy" || playerCollision.gameObject.tag == "Air Enemy" 
             || playerCollision.gameObject.tag == "Spike" || playerCollision.gameObject.tag == "Pitfall")
         {
@@ -461,6 +462,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D playerCollision)
     {
+        //For when the player finishes a level
         if (playerCollision.gameObject.tag == "Finish Line")
         {
             gameObject.SetActive(false);
